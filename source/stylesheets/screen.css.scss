@@ -2,6 +2,7 @@
 @import 'normalize';
 @import 'variables';
 @import 'icon-font';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
 
 /*
 Copyright 2008-2013 Concur Technologies, Inc.
@@ -74,6 +75,11 @@ html, body {
   &>img {
     display: block;
     max-width: 100%;
+    background: #fff;
+    margin: 20px auto;
+    border-radius: 4px;
+    padding: 10px;
+    width: 166px;
   }
 
   &>.search {
@@ -82,7 +88,7 @@ html, body {
     input {
       background: $nav-bg;
       border-width: 0 0 1px 0;
-      border-color: $search-box-border-color;
+      border-color: #fff;
       padding: 6px 0 6px 20px;
       box-sizing: border-box;
       margin: $nav-v-padding $nav-padding;
@@ -99,11 +105,24 @@ html, body {
       color: $nav-text;
       @extend %icon-search;
     }
+    input::-webkit-input-placeholder {
+      color: #9DB0BE !important;
+    }
+     
+    input:-moz-placeholder { /* Firefox 18- */
+      color: #9DB0BE !important;  
+    }
+     
+    input::-moz-placeholder {  /* Firefox 19+ */
+      color: #9DB0BE !important;  
+    }
+     
+    input:-ms-input-placeholder {  
+      color: #9DB0BE !important;  
+    }
   }
 
-  .logo {
-    margin-bottom: $logo-margin;
-  }
+ 
 
   .search-results {
     margin-top: 0;
@@ -155,13 +174,11 @@ html, body {
 
   // This is the currently selected ToC entry
   .toc-link.active {
-    background-color: $nav-active-bg;
     color: $nav-active-text;
   }
 
   // this is parent links of the currently selected ToC entry
   .toc-link.active-parent {
-    background-color: $nav-active-parent-bg;
     color: $nav-active-parent-text;
   }
 
@@ -209,6 +226,8 @@ html, body {
   transition-property: background;
   transition-timing-function: linear;
   transition-duration: 130ms;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 // button to show navigation on mobile devices
@@ -346,6 +365,10 @@ html, body {
     clear:both;
   }
 
+  a {
+    color: #1B75BB;
+  }
+
   h1 {
     @extend %header-font;
     font-size: 25px;
@@ -353,8 +376,8 @@ html, body {
     padding-bottom: 0.5em;
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #C6D1DA;
+    border-bottom: 1px solid #C6D1DA;
     background-color: #fdfdfd;
   }
 
@@ -368,7 +391,7 @@ html, body {
     font-size: 19px;
     margin-top: 4em;
     margin-bottom: 0;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #C6D1DA;
     padding-top: 1.2em;
     padding-bottom: 1.2em;
     background-image: linear-gradient(to bottom, rgba(#fff, 0.2), rgba(#fff, 0));
@@ -409,7 +432,7 @@ html, body {
 
     th {
       padding: 5px 10px;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #C6D1DA;
       vertical-align: bottom;
     }
 
@@ -418,7 +441,7 @@ html, body {
     }
 
     tr:last-child {
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #C6D1DA;
     }
 
     tr:nth-child(odd)>td {
@@ -470,6 +493,7 @@ html, body {
 
     &.warning {
       background-color: $aside-warning-bg;
+      color: #fff;
     }
 
     &.success {
@@ -529,7 +553,7 @@ html, body {
     a {
       color: #fff;
       text-decoration: none;
-      border-bottom: dashed 1px #ccc;
+      border-bottom: dashed 1px #C6D1DA;
     }
   }
 
@@ -547,6 +571,9 @@ html, body {
       color: #eee;
     }
   }
+  .highlight .s2, .highlight .s, .highlight .s1 {
+    color: #FFAB40;
+  }  
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -609,6 +636,6 @@ html, body {
   color: #909090;
 }
 
-.highlight, .highlight .w {
+.highlight, .highlight .w,  {
   background-color: $code-bg;
 }
