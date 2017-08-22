@@ -4,14 +4,14 @@
 
 ```shell
 # You can also use wget
-curl -X post https://api.wirecash.com/dev/token \
+curl -X post https://api.wirecash.com/sandbox/token \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
   -d '{"username":"YOUR USERNAME","access_token":"YOUR ACCESS TOKEN", "refresh_token": "YOUR REFRESH TOKEN"}'
 ```
 
 ```http
-POST https://api.wirecash.com/dev/token HTTP/1.1
+POST https://api.wirecash.com/sandbox/token HTTP/1.1
 Host: api.wirecash.com
 Content-Type: application/json
 Accept: application/json
@@ -30,7 +30,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('https://api.wirecash.com/dev/token',
+fetch('https://api.wirecash.com/sandbox/token',
 {
   method: 'POST',
   body: inputBody,
@@ -52,7 +52,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'https://api.wirecash.com/dev/token',
+result = RestClient.post 'https://api.wirecash.com/sandbox/token',
   params: {
   }, headers: headers
 
@@ -66,7 +66,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('https://api.wirecash.com/dev/token', params={
+r = requests.post('https://api.wirecash.com/sandbox/token', params={
   'access_token': 'YOUR ACCESS TOKEN',
   'refresh_token': 'YOUR REFRESH TOKEN',
   'username': 'YOUR USERNAME'
@@ -76,16 +76,15 @@ print r.json()
 ```
 
 ```java
-//Using Unirest http://unirest.io/java.html
-HashMap<String, String> requestBody = new HashMap<>();
-requestBody.put("username", "YOUR USERNAME");
-requestBody.put("refresh_token", "YOUR REFRESH TOKEN");
-requestBody.put("access_token", "YOUR ACCESS TOKEN");
-
-Unirest.post("https://api.wirecash.com/dev/authenticate")
-  .header("accept", "application/json")        
-  .body(requestBody)
-  .asJson();
+Response<AuthenticateResponse> response = client.service().refreshToken(
+    new RefreshTokenRequest()
+        .withUsername("USERNAME")
+        .withRefresh_token("REFRESH_TOKEN")
+        .withAccess_token("ACCESS_TOKEN")
+).execute();
+if (response.isSuccessful()) {
+    //do something
+}
 ```
 
 ```csharp

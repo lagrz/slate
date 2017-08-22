@@ -17,28 +17,40 @@ includes:
   - api/company_id
   - api/country_code
   - api/country_list
+  - api/quote
   - api/state_code
   - api/state_code_country_code
   - api/state_list
   - schemas
   - schemas/AuthenticateRequest
   - schemas/AuthenticateResponse
-  - schemas/RefreshTokenRequest
   - schemas/CompaniesResponse
-  - schemas/CountryListResponse
-  - schemas/StateListResponse
   - schemas/Company
+  - schemas/CountryListResponse
   - schemas/ExchangeRate  
   - schemas/NameCode
   - schemas/Payer  
+  - schemas/QuoteRequest
+  - schemas/QuoteResponse
+  - schemas/RefreshTokenRequest
   - schemas/Service
+  - schemas/StateListResponse
 search: true
 highlight_theme: darkula
 ---
 
 # WireCash API
 
-> Scroll down for example requests and responses.
+
+> A Java api client is available on maven:
+
+```xml
+<dependency>
+    <groupId>com.wirecash</groupId>
+    <artifactId>api-client</artifactId>
+    <version>1.1.0</version>
+</dependency>
+```
 
 The WireCash API provides Services from our partners with fees, rates. Searchable by US state of origin, country remitting to, or both. See the various API resources for more information.
 

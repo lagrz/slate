@@ -4,14 +4,14 @@
 
 ```shell
 # You can also use wget
-curl -X get https://api.wirecash.com/dev/country/BR \
+curl -X get https://api.wirecash.com/sandbox/country/BR \
   -H 'Authorization: string' \
   -H 'Accept: application/json'
   -H 'Authorization: YOUR_ACCESS_TOKEN'
 ```
 
 ```http
-GET https://api.wirecash.com/dev/country/BR HTTP/1.1
+GET https://api.wirecash.com/sandbox/country/BR HTTP/1.1
 Host: api.wirecash.com
 
 Accept: application/json
@@ -27,7 +27,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('https://api.wirecash.com/dev/country/BR',
+fetch('https://api.wirecash.com/sandbox/country/BR',
 {
   method: 'GET',
   headers: headers
@@ -48,7 +48,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://api.wirecash.com/dev/country/BR',
+result = RestClient.get 'https://api.wirecash.com/sandbox/country/BR',
   params: {}, headers: headers
 
 p JSON.parse(result)
@@ -61,7 +61,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://api.wirecash.com/dev/country/BR', params={
+r = requests.get('https://api.wirecash.com/sandbox/country/BR', params={
 
 }, headers = headers)
 
@@ -69,10 +69,13 @@ print r.json()
 ```
 
 ```java
-//Using Unirest http://unirest.io/java.html
-Unirest.get("https://api.wirecash.com/dev/country/BR")
-  .header("Authorization", "YOUR_ACCESS_TOKEN")
-  .asJson();
+Response<CompaniesResponse> response = client.service().getServicesByCountry(
+    COUNTRY_CODE,
+    authenticateResponse.getAccess_token()
+).execute();
+if(response.isSuccessful()){
+    //do something with the response
+}
 ```
 
 ```csharp

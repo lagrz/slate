@@ -11,7 +11,7 @@ curl -X get https://api.wirecash.com/state/list \
 ```
 
 ```http
-GET https://api.wirecash.com/dev/state/list HTTP/1.1
+GET https://api.wirecash.com/sandbox/state/list HTTP/1.1
 Host: api.wirecash.com
 
 Accept: application/json
@@ -27,7 +27,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('https://api.wirecash.com/dev/state/list',
+fetch('https://api.wirecash.com/sandbox/state/list',
 {
   method: 'GET',
 
@@ -49,7 +49,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://api.wirecash.com/dev/state/list',
+result = RestClient.get 'https://api.wirecash.com/sandbox/state/list',
   params: {}, headers: headers
 
 p JSON.parse(result)
@@ -62,7 +62,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://api.wirecash.com/dev/state/list', params={
+r = requests.get('https://api.wirecash.com/sandbox/state/list', params={
 
 }, headers = headers)
 
@@ -70,10 +70,11 @@ print r.json()
 ```
 
 ```java
-//Using Unirest http://unirest.io/java.html
-Unirest.get("https://api.wirecash.com/dev/state/list")
-  .header("Authorization", "YOUR_ACCESS_TOKEN")
-  .asJson();
+Response<StateListResponse> response = client.service()
+    .getStateList(authenticateResponse.getAccess_token()).execute();
+if (response.isSuccessful()) {
+    //do something
+}
 ```
 
 ```csharp

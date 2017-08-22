@@ -4,14 +4,14 @@
 
 ```shell
 # You can also use wget
-curl -X post https://818gukoqgf.execute-api.us-east-1.amazonaws.com/dev/authenticate \
+curl -X post https://api.wirecash.com/sandbox/authenticate \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json'
   -d '{"username":"YOUR USERNAME","password":"YOUR PASSWORD"}'
 ```
 
 ```http
-POST https://api.wirecash.com/dev/authenticate HTTP/1.1
+POST https://api.wirecash.com/sandbox/authenticate HTTP/1.1
 Host: api.wirecash.com
 Content-Type: application/json
 Accept: application/json
@@ -29,7 +29,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('https://api.wirecash.com/dev/authenticate',
+fetch('https://api.wirecash.com/sandbox/authenticate',
 {
   method: 'POST',
   body: inputBody,
@@ -51,7 +51,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'https://api.wirecash.com/dev/authenticate',
+result = RestClient.post 'https://api.wirecash.com/sandbox/authenticate',
   params: {
     'username' => 'YOUR USERNAME',
     'password' => 'YOUR PASSWORD'
@@ -67,7 +67,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('https://api.wirecash.com/dev/authenticate', params={
+r = requests.post('https://api.wirecash.com/sandbox/authenticate', params={
   'username': 'YOUR USERNAME',
   'password': 'YOUR PASSWORD'
 }, headers = headers)
@@ -76,15 +76,18 @@ print r.json()
 ```
 
 ```java
-//Using Unirest http://unirest.io/java.html
-HashMap<String, String> requestBody = new HashMap<>();
-requestBody.put("username", "YOUR USERNAME");
-requestBody.put("password", "YOUR PASSWORD");
-
-Unirest.post("https://api.wirecash.com/dev/authenticate")
-  .header("accept", "application/json")        
-  .body(requestBody)
-  .asJson();
+//create the client
+WirecashClient client = WirecashClient.newBuilder()
+    .developmentBaseUrl().build();
+//make an authenticate request with the server
+Response<AuthenticateResponse> response = client.service().authenticate(
+    new AuthenticateRequest()
+            .withUsername("YOUR_USERNAME")
+            .withPassword("YOUR_PASSOWRD")).execute();
+//verify request was a success first
+if(response.isSuccessful()){
+    System.out.println(response.body().getAccess_token());
+}
 ```
 
 ```csharp

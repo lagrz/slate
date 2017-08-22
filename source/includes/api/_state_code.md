@@ -4,14 +4,14 @@
 
 ```shell
 # You can also use wget
-curl -X get https://api.wirecash.com/dev/state/CA \
+curl -X get https://api.wirecash.com/sandbox/state/CA \
   -H 'Authorization: string' \
   -H 'Accept: application/json'
   -H 'Authorization: YOUR_ACCESS_TOKEN'
 ```
 
 ```http
-GET https://api.wirecash.com/dev/state/CA HTTP/1.1
+GET https://api.wirecash.com/sandbox/state/CA HTTP/1.1
 Host: api.wirecash.com
 
 Accept: application/json
@@ -27,7 +27,7 @@ const headers = {
   'Accept':'application/json'
 };
 
-fetch('https://api.wirecash.com/dev/state/CA',
+fetch('https://api.wirecash.com/sandbox/state/CA',
 {
   method: 'GET',
 
@@ -49,7 +49,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://api.wirecash.com/dev/state/CA',
+result = RestClient.get 'https://api.wirecash.com/sandbox/state/CA',
   params: {}, headers: headers
 
 p JSON.parse(result)
@@ -62,7 +62,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://api.wirecash.com/dev/state/CA', params={
+r = requests.get('https://api.wirecash.com/sandbox/state/CA', params={
 
 }, headers = headers)
 
@@ -70,10 +70,14 @@ print r.json()
 ```
 
 ```java
-//Using Unirest http://unirest.io/java.html
-Unirest.get("https://api.wirecash.com/dev/state/CA")
-  .header("Authorization", "YOUR_ACCESS_TOKEN")
-  .asJson();
+Response<CompaniesResponse> response = client.service()
+    .getServicesByState(
+            "CA",
+            authenticateResponse.getAccess_token())
+    .execute();
+if (response.isSuccessful()) {
+    //do something
+}
 ```
 
 ```csharp
