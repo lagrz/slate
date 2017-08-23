@@ -4,9 +4,8 @@
 
 ```shell
 # You can also use wget
-curl -X get https://api.wirecash.com/state/list \
-  -H 'Authorization: string' \
-  -H 'Accept: application/json'
+curl -X get https://api.wirecash.com/state/list \  
+  -H 'Accept: application/json' \
   -H 'Authorization: YOUR_ACCESS_TOKEN'
 ```
 

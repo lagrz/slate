@@ -6,7 +6,7 @@
 # You can also use wget
 curl -X post https://api.wirecash.com/sandbox/token \
   -H 'Content-Type: application/json' \
-  -H 'Accept: application/json'
+  -H 'Accept: application/json' \
   -d '{"username":"YOUR USERNAME","access_token":"YOUR ACCESS TOKEN", "refresh_token": "YOUR REFRESH TOKEN"}'
 ```
 

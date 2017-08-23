@@ -4,10 +4,9 @@
 
 ```shell
 # You can also use wget
-curl -X get https://api.wirecash.com/quote \
-  -H 'Authorization: string' \
-  -H 'Accept: application/json'
-  -H 'Authorization: YOUR_ACCESS_TOKEN'
+curl -X get https://api.wirecash.com/quote \  
+  -H 'Accept: application/json' \
+  -H 'Authorization: YOUR_ACCESS_TOKEN' \
   -d '{"amount":25.0,"currency_symbol":"BRL", "payer_id": 34, "service_id": 2541}'
 ```
 
