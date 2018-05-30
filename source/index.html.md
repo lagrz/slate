@@ -48,7 +48,7 @@ highlight_theme: darkula
 <dependency>
     <groupId>com.wirecash</groupId>
     <artifactId>api-client</artifactId>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
 </dependency>
 ```
 

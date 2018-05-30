@@ -78,7 +78,7 @@ print r.json()
 ```
 
 ```java
-Response<QuoteRequest> response = client.service().getQuote(
+Response<QuoteResponse> response = client.service().getQuote(
     new QuoteRequest()
             .withServiceId(2451L)
             .withCurrencySymbol("BRL")
